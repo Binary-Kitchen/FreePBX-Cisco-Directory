@@ -2,8 +2,12 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Overdesign\PsrCache\FileCacheDriver;
+use Noodlehaus\Config;
+
 $cacheDir = __DIR__ . '/../cache';
 $cache = new FileCacheDriver($cacheDir);
+
+$config = new Config(__DIR__ . '/../config');
 
 header("content-type: text/xml");
 header("Connection: close");
@@ -71,7 +75,7 @@ function toolsShow($url, $xtn)
 
 function directoryShow($mode, $url, $xtn, $page)
 {
-	global $db, $cache;
+	global $db, $cache, $config;
 
 	define('MAX_ENTRIES', 32);
 
@@ -86,11 +90,11 @@ function directoryShow($mode, $url, $xtn, $page)
 	case "eventphone":
 		$cacheResults = $cache->getItem('ldap_results');
 		if (!$cacheResults->isHit()) {
-			$ldap_host = 'guru3.eventphone.de';
-			$ldap_port = 389;
-			$ldap_basedn = 'ou=EPVPN,dc=eventphone,dc=de';
-			$ldap_filter = '(&(cn=*))';
-			$ldap_dial_prefix = '01999';
+			$ldap_host = $config['eventphone']['ldap']['host'];
+			$ldap_port = $config['eventphone']['ldap']['port'];
+			$ldap_basedn = $config['eventphone']['ldap']['basedn'];
+			$ldap_filter = $config['eventphone']['ldap']['filter'];
+			$ldap_dial_prefix = $config['eventphone']['prefix'];
 
 			$ds = @ldap_connect($ldap_host, $ldap_port);
 			if ($ds === false)

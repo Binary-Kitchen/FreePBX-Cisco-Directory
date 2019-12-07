@@ -1,6 +1,7 @@
 {
 	"require": {
 		"psr/cache": "^1.0",
-		"overdesign/psr-cache": "^1.1"
+		"overdesign/psr-cache": "^1.1",
+		"hassankhan/config": "^2.1"
 	}
 }

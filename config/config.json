@@ -1,0 +1,11 @@
+{
+	"eventphone": {
+		"prefix": "01999",
+		"ldap": {
+			"host": "guru3.eventphone.de",
+			"port": 389,
+			"basedn": "ou=EPVPN,dc=eventphone,dc=de",
+			"filter": "(&(cn=*))"
+		}
+	}
+}
