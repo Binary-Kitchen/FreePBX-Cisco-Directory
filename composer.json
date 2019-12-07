@@ -1,0 +1,6 @@
+{
+	"require": {
+		"psr/cache": "^1.0",
+		"overdesign/psr-cache": "^1.1"
+	}
+}

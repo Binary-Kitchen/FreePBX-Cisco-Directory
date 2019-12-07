@@ -1,0 +1,108 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8d698de6a2fee483683537667894adba",
+    "packages": [
+        {
+            "name": "overdesign/psr-cache",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/override2k/psr-cache.git",
+                "reference": "ec1dd1d7c05b27f4180c83b44de0e55d4dc3d3d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/override2k/psr-cache/zipball/ec1dd1d7c05b27f4180c83b44de0e55d4dc3d3d4",
+                "reference": "ec1dd1d7c05b27f4180c83b44de0e55d4dc3d3d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "psr/cache": "^1.0.1"
+            },
+            "provide": {
+                "psr/cache": "^1.0.1",
+                "psr/cache-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overdesign\\PsrCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fernando Robledo",
+                    "email": "overdesign@gmail.com"
+                }
+            ],
+            "description": "File cache implementation using PSR6",
+            "time": "2017-12-27T23:08:33+00:00"
+        },
+        {
+            "name": "psr/cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2016-08-06T20:24:11+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
