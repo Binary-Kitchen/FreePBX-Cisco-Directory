@@ -122,7 +122,7 @@ function directoryShow($mode, $url, $xtn, $page)
 			}
 
 			$cacheResults->set($uncachedResults);
-			$cacheResults->expiresAfter(120);
+			$cacheResults->expiresAfter($config['eventphone']['cache']['ttl']);
 			$cache->save($cacheResults);
 		}
 

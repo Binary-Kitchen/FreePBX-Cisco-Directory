@@ -6,6 +6,9 @@
 			"port": 389,
 			"basedn": "ou=EPVPN,dc=eventphone,dc=de",
 			"filter": "(&(cn=*))"
+		},
+		"cache": {
+			"ttl": 600
 		}
 	}
 }
