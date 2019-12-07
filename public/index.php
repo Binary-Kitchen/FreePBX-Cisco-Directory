@@ -5,7 +5,10 @@ use Overdesign\PsrCache\FileCacheDriver;
 $cacheDir = __DIR__ . '/../cache';
 $cache = new FileCacheDriver($cacheDir);
 
-header ("content-type: text/xml");
+header("content-type: text/xml");
+header("Connection: close");
+header("Expires: -1");
+
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
 	include_once('/etc/asterisk/freepbx.conf');
 }
@@ -87,6 +90,7 @@ function directoryShow($mode, $url, $xtn, $page)
 			$ldap_port = 389;
 			$ldap_basedn = 'ou=EPVPN,dc=eventphone,dc=de';
 			$ldap_filter = '(&(cn=*))';
+			$ldap_dial_prefix = '01999';
 
 			$ds = @ldap_connect($ldap_host, $ldap_port);
 			if ($ds === false)
@@ -109,7 +113,7 @@ function directoryShow($mode, $url, $xtn, $page)
 					continue;
 				$r_ar = array();
 				$r_ar[0]=$ldap_result[$i]["sn"][0];
-				$r_ar[1]=$ldap_result[$i]["telephonenumber"][0];
+				$r_ar[1]=$ldap_dial_prefix . $ldap_result[$i]["telephonenumber"][0];
 				array_push($uncachedResults, $r_ar);
 			}
 
@@ -159,7 +163,7 @@ function directoryShow($mode, $url, $xtn, $page)
 function addSoftKey($xml, $name, $url, $position)
 {
 	$softKeyDial = $xml->addChild('SoftKeyItem');
-	$softKeyDial->addChild('Name', $name);
+	$softKeyDial->addChild('Name', htmlspecialchars($name));
 	$softKeyDial->addChild('URL', htmlspecialchars($url));
 	$softKeyDial->addChild('Position', $position);
 }
