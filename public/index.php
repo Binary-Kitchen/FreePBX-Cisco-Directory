@@ -175,6 +175,6 @@ function addSoftKey($xml, $name, $url, $position)
 function addDirectoryEntry($xml, $name, $telephone)
 {
         $item = $xml->addChild('DirectoryEntry');
-	$item->addChild('Name', $name);
-	$item->addChild('Telephone', $telephone);
+	$item->addChild('Name', htmlspecialchars($name));
+	$item->addChild('Telephone', htmlspecialchars($telephone));
 }
